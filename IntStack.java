@@ -26,6 +26,33 @@ public class IntStack {
     int peek() {
 	return stack[top-1];
     }
+    
+    int[] popAll() {
+	//make array of size top, fill that with all items in stack, and then return the array
+	int[] popAll = new int[top]; 
+	for(int i = 0; !isEmpty(); i++)
+	    {
+		popAll[i]= pop();
+		System.out.println(popAll[i]);
+	    }
+	return popAll;
+	
+      }
+    int[] ascend() {
+	int[] ascend = new int[top];
+	ascend = popAll();
+        
+	Arrays.sort(ascend);
+	return ascend;
+    }
+     int[] descend() {
+	int[] descend = new int[top];
+	descend = popAll();
+        
+	Arrays.sort(descend);
+	reverse(descend);
+	return descend;
+    }
 
     int[] peekAll() {
 	int[] peekAll = new int[stack.length];
@@ -42,6 +69,16 @@ public class IntStack {
     }
 
 
+    //taken from stackoverflow
+    public static void reverse(int[] data) {
+	for (int left = 0, right = data.length - 1; left < right; left++, right--) {
+	    // swap the values at the left and right indices
+	    int temp = data[left];
+	    data[left]  = data[right];
+	    data[right] = temp;
+	}
+    }
+
     public static void main(String[] args) {
 	IntStack is = new IntStack(10);
 	is.push(4);
@@ -55,4 +92,18 @@ public class IntStack {
 	System.out.println(p);
     }
 
+	//tests for popall:
+	is.push(6);
+	/*
+	int[] j = is.popAll(); //i expect an array of size 3 with 6,5,4
+	System.out.println(Arrays.toString(j));
+	
+	int[] l = is.ascend(); // i expect an array of size 3 with 4,5,6
+	System.out.println(Arrays.toString(l)); */
+	int[] m = is.descend(); // i expect an array of size 3 with 6,5,4
+	System.out.println(Arrays.toString(m));
+
+
+
+    }
 }
