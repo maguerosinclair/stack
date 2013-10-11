@@ -54,16 +54,23 @@ public class IntStack {
 	return descend;
     }
 
+    //peak all the values in the stack
     int[] peekAll() {
+	//fill new int array peakAll with length stack.length
 	int[] peekAll = new int[stack.length];
+	//fill peakAll with values of stack[], stopping before "top" of stack
 	for(int i=0; i<top; i++) {
 	    peekAll[i] = stack[i];
         }
+	//return created stack
 	return peekAll;
     }
     
+    //peek certain value in stack
     int peekAt(int position) {
+	//returns zero if you peek value that is at or above top
 	if(position>=top) return 0;
+	//return the position
 	return stack[position];
 
     }
