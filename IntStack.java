@@ -27,19 +27,17 @@ public class IntStack {
 
     //Alia
     int[] popfrompoint(int popoint){
-	//pop all until top is at a certain pointt
-	// make int array of things popped that will be returned
-	// make int for position in popped that the thing that is popped out will be placed in
+	// pop all from point that is input
 	int i = 0;
 	int[] popped = new int[top- popoint];
-	    // if top is greater than popoint, place the point that is popped out of the stack into a new array, called popped 
 	while (top > popoint){
 	    popped[i++] = stack[top--];
 	}
 	// print the array
-	for (int b  = 0; b < popped.length; b++){
+	for (int b  = 1; b < popped.length; b++){
 	    System.out.print(popped[b] + " ");
 }
+	System.out.println();
 	return popped;	
     }
 
@@ -112,29 +110,66 @@ public class IntStack {
 
     public static void main(String[] args) {
 	IntStack is = new IntStack(10);
+	//push things in stack
+	is.push(4);
+	is.push(5);
+	is.push(8);
+	is.push(7);
+	is.push(8);
+	is.push(3);
+	is.push(4);
+	int k = is.pop();
+	System.out.println(k);
+
+	//testing peek all method
+	int[] mm = is.peekAll();
+	System.out.println(Arrays.toString(mm));
+	//testing peek at position 2
+	int p = is.peekAt(2);
+	System.out.println(p);
+
+	// tests for depth:
+	int d = is.depth();
+	System.out.println(d);
+	
+	//tests for pop from point: this pops all of them out of the array until there are only the number you choose left 
+	is.popfrompoint(5);
+	//peek all
+       	int[] mmm = is.peekAll();
+	System.out.println(Arrays.toString(mmm));
+	//restoring stack
+	is.push(7);
+	is.push(5);
+	is.push(3);
+	is.push(2);
+	//peek all
+	int[] mmmm = is.peekAll();
+	System.out.println(Arrays.toString(mmmm));
+	//tests for popall:
+    
 	is.push(4);
 	is.push(5);
 	is.push(6);
-	int k = is.pop();
-	System.out.println(k);
-	int[] m = is.peekAll();
-	int p = is.peekAt(2);
-	System.out.println(Arrays.toString(m));
-	System.out.println(p);
-    }
-
-	//tests for popall:
-	is.push(6);
-	/*
+       
 	int[] j = is.popAll(); //i expect an array of size 3 with 6,5,4
 	System.out.println(Arrays.toString(j));
+	// test for ascend
+	is.push(4);
+	is.push(5);
+	is.push(6);
 	
 	int[] l = is.ascend(); // i expect an array of size 3 with 4,5,6
-	System.out.println(Arrays.toString(l)); */
-	int[] m = is.descend(); // i expect an array of size 3 with 6,5,4
-	System.out.println(Arrays.toString(m));
+	System.out.println(Arrays.toString(l));
+	//test for descend 
+	is.push(4);
+	is.push(5);
+	is.push(6);
+    	int[] m = is.descend(); // i expect an array of size 3 with 6,5,4
+     System.out.println(Arrays.toString(m));
+	
+	
+    }
 
 
 
     }
-}
