@@ -24,14 +24,15 @@ public class IntStack {
 	stack[top++]=num;       
     }
 
-<<<<<<< HEAD
-    int pop(){
+
+    int pop() {
 	//--happens before and changes top only if there is something left to pop
 	if(isEmpty()==false){
 	   return stack[--top]; 
 	}
 	return -1; 
-=======
+    }
+
     //Alia
     int depth(){
 	//returns the depth, same as top
@@ -40,7 +41,7 @@ public class IntStack {
     }
 
     //Alia
-    int[] popfrompoint(int popoint){
+    /* int[] popfrompoint(int popoint){
 	// pop all from point that is input
 	int i = 0;
 	int[] popped = new int[top- popoint];
@@ -50,22 +51,16 @@ public class IntStack {
 	// print the array
 	for (int b  = 1; b < popped.length; b++){
 	    System.out.print(popped[b] + " ");
-}
+	}
 	System.out.println();
 	return popped;	
     }
-
-      int pop() {
-	//--happens before and changes top
-	return stack[--top];
->>>>>>> 04bd9b04d8de6b24f272ac6f1ece971e70e484fd
-    }
-    int peek() {
+    */
+ 
+    int peek(){
 	return stack[top-1];
     }
-<<<<<<< HEAD
-
-
+   
     IntStack reverseStack(){
 	//make a newStack thats empty
 	IntStack newStack = new IntStack(stack.length);	
@@ -75,7 +70,7 @@ public class IntStack {
         }  
 	return newStack; //return newStack
     }
-
+ 
     IntStack  sort() {
 	//create two new empty stacks
       	IntStack newStack1 = new IntStack(stack.length);
@@ -91,7 +86,7 @@ public class IntStack {
 	}
         newStack1.push(newStack2.pop()); //pop the top number of the second new stack and push it onto the first new stack
 	return newStack1; 
-=======
+    }
     
     int[] popAll() {
 	//make array of size top, fill that with all items in stack, and then return the array
@@ -101,9 +96,9 @@ public class IntStack {
 		popAll[i]= pop();
 		System.out.println(popAll[i]);
 	    }
-	return popAll;
-	
+	return popAll;	
       }
+
     int[] ascend() {
 	int[] ascend = new int[top];
 	ascend = popAll();
@@ -150,15 +145,11 @@ public class IntStack {
 	    data[left]  = data[right];
 	    data[right] = temp;
 	}
->>>>>>> 04bd9b04d8de6b24f272ac6f1ece971e70e484fd
     }
 
     public static void main(String[] args) {
 	IntStack is = new IntStack(10);
-<<<<<<< HEAD
-=======
 	//push things in stack
->>>>>>> 04bd9b04d8de6b24f272ac6f1ece971e70e484fd
 	is.push(4);
 	is.push(5);
 	is.push(8);
@@ -169,19 +160,15 @@ public class IntStack {
 	int k = is.pop();
 	System.out.println(k);
 
-<<<<<<< HEAD
-	//reverse stack
+	//Rachel -- reverse stack
 	IntStack is_rev = is.reverseStack();
 	int bottom = is_rev.pop();
 	System.out.println(bottom);
 
-	//sort
+	//Rachel -- sort
        IntStack is_sort = is.sort();  
 	is_sort.print(); 
 
-    }
-}
-=======
 	//testing peek all method
 	int[] mm = is.peekAll();
 	System.out.println(Arrays.toString(mm));
@@ -194,7 +181,8 @@ public class IntStack {
 	System.out.println(d);
 	
 	//tests for pop from point: this pops all of them out of the array until there are only the number you choose left 
-	is.popfrompoint(5);
+	//is.popfrompoint(2);
+
 	//peek all
        	int[] mmm = is.peekAll();
 	System.out.println(Arrays.toString(mmm));
@@ -226,12 +214,9 @@ public class IntStack {
 	is.push(5);
 	is.push(6);
     	int[] m = is.descend(); // i expect an array of size 3 with 6,5,4
-     System.out.println(Arrays.toString(m));
+	System.out.println(Arrays.toString(m));
 	
 	
     }
+}
 
-
-
-    }
->>>>>>> 04bd9b04d8de6b24f272ac6f1ece971e70e484fd
